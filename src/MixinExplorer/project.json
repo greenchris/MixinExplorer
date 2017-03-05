@@ -1,0 +1,21 @@
+{
+    "version": "1.0.0-*",
+    "description": "MixinExplorer Console Application",
+    "authors": [ "Chris" ],
+    "tags": [ "" ],
+    "projectUrl": "",
+    "licenseUrl": "",
+
+    "dependencies": {
+        "Newtonsoft.Json": "8.0.3"  },
+
+    "commands": {
+        "MixinExplorer": "MixinExplorer"
+    },
+
+    "frameworks": {
+        "dnx451": {
+"frameworkAssemblies": {
+} }
+    }
+}
