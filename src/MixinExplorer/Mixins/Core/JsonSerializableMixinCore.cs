@@ -13,7 +13,7 @@ namespace MixinExplorer.Mixins.Core
         public static string ToJson(this JsonSerializableMixin subject) =>
             JsonConvert.SerializeObject(subject, Formatting.Indented);
 
-        public static void FromJson<T>(this JsonSerializableMixin subject, string json) =>
-            JsonConvert.DeserializeObject<T>(json);
+        public static void FromJson<T>(this JsonSerializableMixin subject, string json) where T : JsonSerializableMixin =>
+            subject = JsonConvert.DeserializeObject<T>(json);
     }
 }
