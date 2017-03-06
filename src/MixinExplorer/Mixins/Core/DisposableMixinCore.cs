@@ -8,36 +8,35 @@ namespace MixinExplorer.Mixins.Core
     /// </summary>
     public static class DisposableMixinCore
     {
-        private static bool _disposed = false;
+        private static bool _disposed;
 
-        public static void Dispose(this DisposableMixin subject, bool disposing, params Object[] unmanagedDependencies)
+        public static void Dispose(this DisposableMixin subject, bool disposingDependencies, params object[] unmanagedDependencies)
         {
             _disposed = false;
 
             if (!_disposed)
             {
-                if (disposing)
+                if (disposingDependencies)
                 {
                     unmanagedDependencies?.ToList().ForEach(d =>
                     {
-                        Dispose((object) d);
+                        Dispose(d);
                         GC.SuppressFinalize(subject);
                     });
                 }
-
                 _disposed = true;
+                Dispose(subject);
             }
-            Console.WriteLine($"Disposal of {subject}'s unmanaged resources complete");
         }
 
         #region private utils
-        private static void Dispose(object dependency)
+        private static void Dispose(object obj)
         {
             if (_disposed)
-                return;
+                Console.WriteLine($"Disposal of {obj} and its unmanaged resources is complete");
 
-            if (dependency != null)
-                dependency = null;
+            if (obj != null)
+                obj = null;
         }
         #endregion
     }

@@ -30,7 +30,7 @@ namespace MixinExplorer
             //Console.WriteLine($"Deserialization of {json} \n to {shinobiX.GetType()} complete");
 
             /* 3. dispose of shinobi's specified unmanaged code (for sake of example, just feed dud objs) */
-            //shinobiX.Dispose(true, new Object [] { new Object(), new Object() });
+            //shinobiX.Dispose(true, new object [] { new object(), new object() });
 
             Console.ReadKey();
         }
