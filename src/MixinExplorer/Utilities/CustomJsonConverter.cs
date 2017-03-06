@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 
 namespace MixinExplorer.Utilities
 {
-    public class ToStringJsonConverter : JsonConverter
+    public class CustomJsonConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType) => true;
         public override bool CanRead => true;
@@ -34,7 +34,7 @@ namespace MixinExplorer.Utilities
         /// Creates new reader for the specified jObject, by copying the settings
         /// from an existing reader.
         /// </summary>
-        private static JsonReader CopyReaderForObject(JsonReader reader, JObject jObject)
+        private JsonReader CopyReaderForObject(JsonReader reader, JObject jObject)
         {
             JsonReader jObjectReader = jObject.CreateReader();
 

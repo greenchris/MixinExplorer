@@ -7,7 +7,7 @@ namespace MixinExplorer.Mixins.Core
     /// <summary>
     /// Contains implementation of the core functionality offerd by the JSON Serializable Mixin
     /// </summary>
-    [JsonConverter(typeof(ToStringJsonConverter))]
+    [JsonConverter(typeof(CustomJsonConverter))]
     public static class JsonSerializableMixinCore
     {
         public static string ToJson(this JsonSerializableMixin subject) =>
